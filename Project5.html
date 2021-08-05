@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 5</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+    *{
+    margin: 0;padding: 0;box-sizing: border-box;font-family: 'Lato', sans-serif;
+    }
+    html{
+    font-size: 62.5%;
+    }
+    .main_div{
+        width: 100vw;
+        height: 100vh;
+        background-color: antiquewhite;
+        display: grid;
+        place-items: center;
+    }
+    .center_div{
+        height: 30rem;
+        width: 50rem;
+        background-color: aquamarine;
+        border-radius: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+    .center_div h1{
+        padding: 1rem;
+        font-size: 3rem;
+        height: 7rem;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        /* background-color: brown; */
+    }
+    .center_div .today{
+        width: 100%;
+        height: 5rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .center_div .today h3{
+        font-size: 2rem;
+        display: grid;
+        place-items: center;
+    }
+    
+    .center_div .today #date{
+        background-color: rgb(0, 255, 255,0.5);
+        height: 100%;
+        width: 60%;
+    }
+    .center_div .today #time{
+        background-color: rgb(18, 204, 204);
+        height: 100%;
+        width: 40%;
+    }
+    .temp{
+        width: 100%;
+        height: 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .temp #deg{
+        width: 60%;
+        height: 100%;
+        border: none;
+        padding: 2rem;
+        font-size: 2rem;
+    }
+    
+    .temp #deg:focus, #select:focus{
+        border: none;
+        outline: none;
+    }
+    #deg::-webkit-outer-spin-button,
+    #deg::-webkit-inner-spin-button{
+        -webkit-appearance: none;
+    }
+    .temp #select{
+        width: 40%;
+        height: 100%;
+        border: none;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        background-color: rgb(228, 255, 246);
+    }
+    
+    .temp option{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+    .center_div #btn{
+        width: 100%;
+        height: 5rem;
+        font-size: 2rem;
+        border: none;
+        text-transform: uppercase;
+        background-color: rgb(0, 61, 61);
+        color: wheat;
+    }
+    .center_div #conva{
+        width: 100%;
+        height: 3rem;
+        font-size: 2.5rem;
+        display: grid;
+        place-items: center;
+        /* padding: 2rem; */
+        margin: 2rem;
+    }
+
+
+    @media (max-width:500px) {
+        html{
+            font-size: 40%;
+        }
+    }
+    
+    @media (max-width:400px) {
+        html{
+            font-size: 33%;
+        }
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="main_div">
+
+        <div class="center_div">
+            <h1>Temperature Converter</h1>
+            <div class="today">
+                <h3 id="date"></h3>
+                <h3 id="time"></h3>
+            </div>
+            <div class="temp">
+                <input placeholder="Enter Your Temperature" type="number" id="deg">
+                <select name="scale" id="select">
+                <option value="cel">Calcius (C)</option>
+                <option value="fah">Fahrenheit (F)</option>
+                </select>
+            </div>
+            
+            <button id="btn" onsubmit="convert(); return false">Convert</button>
+            <h2 id="conva"></h2>
+        </div>
+
+    </div>
+    
+
+ 
+    
+
+
+    <script>
+
+        const date=document.querySelector("#date");
+        const time=document.querySelector("#time");
+        time.innerHTML= new Date().toLocaleTimeString();
+        date.innerHTML= new Date().toDateString();
+
+         const btn=document.getElementById('btn');
+
+        const converter=()=>{
+            const deg=document.getElementById('deg').value;    
+            const scale=document.getElementById('select');
+
+          const valueTemp= select.options[scale.selectedIndex].value;
+          var result;
+
+            const celToFah=(cel)=>{
+                let fah=Math.round((cel*9/5)+32);
+                return fah;
+            }
+            const FahToCel=(fah)=>{
+                let cel=Math.round((fah-32)*5/9);
+                return cel;
+            }
+
+
+          if(valueTemp=='cel')
+          {
+              result=celToFah(deg);
+              document.getElementById('conva').innerHTML=`${result}&deg Fahrenheit`;
+          
+            }
+            else
+            {
+                result=FahToCel(deg);
+              document.getElementById('conva').innerHTML=`${result}&deg Celsius`;
+          
+            }
+
+        }
+
+
+        btn.addEventListener('click',converter);
+    </script>
+</body>
+</html>
