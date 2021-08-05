@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Temperature Coverter - RS Project</title>
+    <title>Project 5</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
 
@@ -17,19 +17,20 @@
     .main_div{
         width: 100vw;
         height: 100vh;
-        background-color: antiquewhite;
+        background-color: #9aeec7;
         display: grid;
         place-items: center;
     }
     .center_div{
         height: 30rem;
         width: 50rem;
-        background-color: aquamarine;
         border-radius: 1.5rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
+        background: #126c42;
+        box-shadow: 0 1rem 2rem -0.4rem black;
     }
     .center_div h1{
         padding: 1rem;
@@ -38,7 +39,8 @@
         width: 100%;
         display: grid;
         place-items: center;
-        /* background-color: brown; */
+        color: #9aeec7;
+        
     }
     .center_div .today{
         width: 100%;
@@ -55,12 +57,12 @@
     }
     
     .center_div .today #date{
-        background-color: rgb(0, 255, 255,0.5);
+        background-color: #35dd8f;
         height: 100%;
         width: 60%;
     }
     .center_div .today #time{
-        background-color: rgb(18, 204, 204);
+        background-color: #4ee19d;
         height: 100%;
         width: 40%;
     }
@@ -77,11 +79,14 @@
         border: none;
         padding: 2rem;
         font-size: 2rem;
+        background-color: #9aeec7;
+        border-right: 0.01rem solid #126c42;
     }
     
     .temp #deg:focus, #select:focus{
         border: none;
         outline: none;
+        border-right: 0.1rem solid #126c42;
     }
     #deg::-webkit-outer-spin-button,
     #deg::-webkit-inner-spin-button{
@@ -96,7 +101,7 @@
         align-items: center;
         justify-content: center;
         padding: 1rem;
-        background-color: rgb(228, 255, 246);
+        background-color: #9aeec7;
     }
     
     .temp option{
@@ -111,8 +116,8 @@
         font-size: 2rem;
         border: none;
         text-transform: uppercase;
-        background-color: rgb(0, 61, 61);
-        color: wheat;
+        background-color:#1b9f61;
+        color: #9aeec7;
     }
     .center_div #conva{
         width: 100%;
@@ -122,6 +127,7 @@
         place-items: center;
         /* padding: 2rem; */
         margin: 2rem;
+        color: #9aeec7;
     }
 
 
@@ -149,10 +155,10 @@
                 <h3 id="time"></h3>
             </div>
             <div class="temp">
-                <input placeholder="Enter Your Temperature" type="number" id="deg">
+                <input placeholder="Enter Your Temperature '&deg'" type="number" id="deg">
                 <select name="scale" id="select">
-                <option value="cel">Calcius (C)</option>
-                <option value="fah">Fahrenheit (F)</option>
+                <option value="cel">Calcius (&degC)</option>
+                <option value="fah">Fahrenheit (&degF)</option>
                 </select>
             </div>
             
@@ -185,6 +191,7 @@
 
             const celToFah=(cel)=>{
                 let fah=Math.round((cel*9/5)+32);
+                
                 return fah;
             }
             const FahToCel=(fah)=>{
