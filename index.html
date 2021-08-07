@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 5</title>
+    <title>Temperature Converter</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
 
@@ -81,6 +81,7 @@
         font-size: 2rem;
         background-color: #9aeec7;
         border-right: 0.01rem solid #126c42;
+        text-align: center;
     }
     
     .temp #deg:focus, #select:focus{
@@ -102,13 +103,15 @@
         justify-content: center;
         padding: 1rem;
         background-color: #9aeec7;
+        text-align: center;
     }
     
-    .temp option{
+    .temp select option{
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 1rem;
+        text-align: center;
     }
     .center_div #btn{
         width: 100%;
@@ -118,6 +121,15 @@
         text-transform: uppercase;
         background-color:#1b9f61;
         color: #9aeec7;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.2s linear;
+    }
+    
+    .center_div #btn:hover{
+        background-color: #35dd8f;
+        color: #126c42;
+        transform: scale(1.02);
     }
     .center_div #conva{
         width: 100%;
@@ -191,7 +203,7 @@
 
             const celToFah=(cel)=>{
                 let fah=Math.round((cel*9/5)+32);
-                
+
                 return fah;
             }
             const FahToCel=(fah)=>{
